@@ -21,6 +21,9 @@ public class EmployeeServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action == null) action = "";
         switch (action) {
+            case "view":
+                showEmployeesView(req, resp);
+                break;
             default:
                 break;
         }
@@ -43,6 +46,8 @@ public class EmployeeServlet extends HttpServlet {
 
     private void showEmployeeInfoDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
+        req.setAttribute("employee", employeeService.getEmployeeById(id));
+        System.out.println(employeeService.getEmployeeById(id));
         req.setAttribute("action", req.getParameter("action"));
         req.getRequestDispatcher("/no_1/info_employee.jsp").forward(req, resp);
     }

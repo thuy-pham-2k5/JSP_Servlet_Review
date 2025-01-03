@@ -19,7 +19,7 @@
             <h2>${param.action == 'view' ? 'Employee Information Details' : 'Update Employee Details'}</h2>
         </div>
         <div class="form-container">
-            <form action="/employees?action=update&id=${employee.id}">
+            <form action="/employees?action=${param.action}&id=${employee.idEmployee}" method="post">
                 <div class="mb-3">
                     <label for="1" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" id="1" ${param.action == 'view' ? 'readonly' : ''}

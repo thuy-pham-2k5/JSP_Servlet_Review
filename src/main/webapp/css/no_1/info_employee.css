@@ -1,6 +1,6 @@
 .div-parent{
     width: 650px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid lightgray;
@@ -11,12 +11,15 @@
     justify-content: center;
     margin-bottom: 15px;
 }
+.form-container form {
+    margin-bottom: 0;
+}
 .button-submit {
     display: flex;
     justify-content: flex-end;
 }
 .button-submit button {
-    width: 90px;
+    width: 100px;
     height: 47px;
     font-size: 22px;
 }
