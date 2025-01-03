@@ -1,0 +1,23 @@
+.div-parent div {
+    display: flex;
+    justify-content: center;
+}
+
+/*.div-list-employee {*/
+/*    flex-direction: column;*/
+/*}*/
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px 15px;
+    line-height: 2;
+}
+
+button {
+    cursor: pointer;
+}

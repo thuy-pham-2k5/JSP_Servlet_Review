@@ -29,6 +29,6 @@ public class EmployeeServlet extends HttpServlet {
     private void showEmployeesView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Employee> employees = employeeService.getAllEmployees();
         req.setAttribute("employees", employees);
-        req.getRequestDispatcher("no_1/home.jsp").forward(req, resp);
+        req.getRequestDispatcher("/no_1/home.jsp").forward(req, resp);
     }
 }

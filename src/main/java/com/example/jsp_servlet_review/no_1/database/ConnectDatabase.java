@@ -16,7 +16,6 @@ public class ConnectDatabase {
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("successfully");
         return connection;
     }
 }
