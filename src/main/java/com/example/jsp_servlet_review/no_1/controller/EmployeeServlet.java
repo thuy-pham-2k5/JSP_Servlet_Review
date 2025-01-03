@@ -15,6 +15,17 @@ import java.util.List;
 @WebServlet (value = "/employees")
 public class EmployeeServlet extends HttpServlet {
     EmployeeService employeeService = new EmployeeServiceImpl();
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        if (action == null) action = "";
+        switch (action) {
+            default:
+                break;
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");

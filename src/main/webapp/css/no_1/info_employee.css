@@ -1,0 +1,22 @@
+.div-parent{
+    width: 650px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 2px 3px rgba(136, 135, 135, 0.3);
+}
+.title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.button-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+.button-submit button {
+    width: 90px;
+    height: 47px;
+    font-size: 22px;
+}
