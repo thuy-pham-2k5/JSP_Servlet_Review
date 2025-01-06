@@ -21,12 +21,26 @@ public class EmployeeServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action == null) action = "";
         switch (action) {
+            case "edit":
+                updateInfoEmployee (req, resp);
+                break;
             case "view":
-                showEmployeesView(req, resp);
+                showEmployeesView (req, resp);
                 break;
             default:
                 break;
         }
+    }
+
+    private void updateInfoEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String name = req.getParameter("name");
+        int idDepartment = Integer.parseInt(req.getParameter("department"));
+        String position = req.getParameter("position");
+        Double salary = Double.parseDouble(req.getParameter("salary"));
+        String address = req.getParameter("address");
+        employeeService.updateInfoEmployee(id, name, position, salary, address, idDepartment);
+        resp.sendRedirect("/employees");
     }
 
     @Override
@@ -47,7 +61,6 @@ public class EmployeeServlet extends HttpServlet {
     private void showEmployeeInfoDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         req.setAttribute("employee", employeeService.getEmployeeById(id));
-        System.out.println(employeeService.getEmployeeById(id));
         req.setAttribute("action", req.getParameter("action"));
         req.getRequestDispatcher("/no_1/info_employee.jsp").forward(req, resp);
     }

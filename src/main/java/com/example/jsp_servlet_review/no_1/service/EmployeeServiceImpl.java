@@ -6,6 +6,7 @@ import com.example.jsp_servlet_review.no_1.model.Employee;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class EmployeeServiceImpl implements EmployeeService{
     @Override
@@ -47,6 +48,23 @@ public class EmployeeServiceImpl implements EmployeeService{
             } else {
                 return null;
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateInfoEmployee(int idEmployee, String name, String position, Double salary, String address, int idDepartment) {
+        String query = "{call updateInfoEmployee (?, ?, ?, ?, ?, ?)}";
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            CallableStatement callableStatement = connection.prepareCall(query);
+            callableStatement.setInt(1, idEmployee);
+            callableStatement.setString(2, name);
+            callableStatement.setString(3, position);
+            callableStatement.setDouble(4, salary);
+            callableStatement.setString(5, address);
+            callableStatement.setInt(6, idDepartment);
+            callableStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
