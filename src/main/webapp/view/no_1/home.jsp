@@ -9,48 +9,50 @@
 </head>
 <body>
 
-    <div class="div-parent">
-        <div>
-            <h1>Employee List bhbuu</h1>
-        </div>
-        <div>
-       <button type="submit">Add New Employee</button>
-        </div>
-        <div class="div-list-employee">
-            <table>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Department</th>
-                    <th>Position</th>
-                    <th>Salary</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                </tr>
-                <c:forEach var="employee" items="${employees}">
-                    <tr>
-                        <td>${employee.idEmployee}</td>
-                        <td>${employee.name}</td>
-                        <td>${employee.department}</td>
-                        <td>${employee.position}</td>
-                        <td>${employee.salary} $</td>
-                        <td>${employee.address}</td>
-                        <td>
-                            <a href="/employees?action=view&id=${employee.idEmployee}">
-                                <button>View</button>
-                            </a>
-                            <a href="/employees?action=edit&id=${employee.idEmployee}">
-                                <button>Edit</button>
-                            </a>
-                            <a href="/employees?action=delete&id=${employee.idEmployee}">
-                                <button>Delete</button>
-                            </a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
+<div class="div-parent">
+    <div>
+        <h1>Employee List</h1>
     </div>
+    <div class="div-children">
+        <div>
+            <a href="/employees?action=add">
+                <button type="submit">Add New Employee</button>
+            </a>
+        </div>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            <c:forEach var="employee" items="${employees}">
+                <tr>
+                    <td>${employee.idEmployee}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.department}</td>
+                    <td>${employee.position}</td>
+                    <td>${employee.salary} $</td>
+                    <td>${employee.address}</td>
+                    <td>
+                        <a href="/employees?action=view&id=${employee.idEmployee}">
+                            <button>View</button>
+                        </a>
+                        <a href="/employees?action=edit&id=${employee.idEmployee}">
+                            <button>Edit</button>
+                        </a>
+                        <a href="/employees?action=delete&id=${employee.idEmployee}">
+                            <button>Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+</div>
 
 </body>
 </html>

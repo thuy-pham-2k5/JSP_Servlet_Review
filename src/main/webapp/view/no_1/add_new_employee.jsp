@@ -27,7 +27,7 @@
             <h2>Add New Employee</h2>
         </div>
         <div class="form-container">
-            <form action="/employees?action=${param.action}&id=${employee.idEmployee}" method="post">
+            <form action="/employees?action=add&id=${employee.idEmployee}" method="post">
                 <div class="mb-3">
                     <label for="1" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" id="1" required>
@@ -48,15 +48,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="3" class="form-label">Position</label>
-                    <input type="text" name="position" class="form-control" id="3">
+                    <input type="text" name="position" class="form-control" id="3" required>
                 </div>
                 <div class="mb-3">
                     <label for="4" class="form-label">Salary</label>
-                    <input type="number" name="salary" class="form-control" id="4">
+                    <input type="number" name="salary" class="form-control" id="4" required>
                 </div>
                 <div class="mb-3">
                     <label for="5" class="form-label">Address</label>
-                    <input type="text" name="address" class="form-control" id="5">
+                    <input type="text" name="address" class="form-control" id="5" required>
                 </div>
                 <div class="button-submit">
                     <button type="submit" class="btn btn-primary">Add</button>
