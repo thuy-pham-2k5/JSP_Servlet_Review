@@ -68,10 +68,19 @@ public class EmployeeServlet extends HttpServlet {
             case "view":
                 showEmployeeInfoDetail (req, resp);
                 break;
+            case "delete":
+                deleteInfoEmployee (req, resp);
+                break;
             default:
                 showEmployeesView (req, resp);
                 break;
         }
+    }
+
+    private void deleteInfoEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        employeeService.deleteEmployee(id);
+        resp.sendRedirect("employees");
     }
 
     private void showAddNewEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {

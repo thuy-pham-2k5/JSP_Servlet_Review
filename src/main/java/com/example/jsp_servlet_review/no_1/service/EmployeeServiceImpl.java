@@ -85,4 +85,16 @@ public class EmployeeServiceImpl implements EmployeeService{
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void deleteEmployee(int idEmployee) {
+        String query = "delete from employees where id_employee = ?";
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, idEmployee);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
