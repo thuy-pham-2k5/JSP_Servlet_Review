@@ -54,6 +54,22 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
+    public void addNewEmployee(String name, int idDepartment, String position, double salary, String address) {
+        String query = "INSERT INTO employees (name, position, salary, address, id_department) VALUES (?, ?, ?, ?, ?)";
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, position);
+            preparedStatement.setDouble(3, salary);
+            preparedStatement.setString(4, address);
+            preparedStatement.setInt(5, idDepartment);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public void updateInfoEmployee(int idEmployee, String name, String position, Double salary, String address, int idDepartment) {
         String query = "{call updateInfoEmployee (?, ?, ?, ?, ?, ?)}";
         try (Connection connection = ConnectDatabase.getConnection()) {

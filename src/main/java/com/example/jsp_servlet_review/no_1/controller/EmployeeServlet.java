@@ -21,6 +21,9 @@ public class EmployeeServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action == null) action = "";
         switch (action) {
+            case "add":
+                addNewEmployee (req, resp);
+                break;
             case "edit":
                 updateInfoEmployee (req, resp);
                 break;
@@ -30,6 +33,16 @@ public class EmployeeServlet extends HttpServlet {
             default:
                 break;
         }
+    }
+
+    private void addNewEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String name = req.getParameter("name");
+        int idDepartment = Integer.parseInt(req.getParameter("department"));
+        String position = req.getParameter("position");
+        double salary = Double.parseDouble(req.getParameter("salary"));
+        String address = req.getParameter("address");
+        employeeService.addNewEmployee(name, idDepartment, position, salary, address);
+        resp.sendRedirect("/employees");
     }
 
     private void updateInfoEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
