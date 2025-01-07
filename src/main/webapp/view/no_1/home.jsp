@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="/css/no_1/home.css">
 </head>
 <body>
-<main>
+
     <div class="div-parent">
         <div>
-            <h1>Employee List</h1>
+            <h1>Employee List bhbuu</h1>
+        </div>
+        <div>
+       <button type="submit">Add New Employee</button>
         </div>
         <div class="div-list-employee">
             <table>
@@ -33,15 +36,21 @@
                         <td>${employee.salary} $</td>
                         <td>${employee.address}</td>
                         <td>
-                            <a href="/employees?action=view&id=${employee.idEmployee}"><button>View</button></a>
-                            <a href="/employees?action=edit&id=${employee.idEmployee}"><button>Edit</button></a>
-                            <a href="/employees?action=delete&id=${employee.idEmployee}"><button>Delete</button></a>
+                            <a href="/employees?action=view&id=${employee.idEmployee}">
+                                <button>View</button>
+                            </a>
+                            <a href="/employees?action=edit&id=${employee.idEmployee}">
+                                <button>Edit</button>
+                            </a>
+                            <a href="/employees?action=delete&id=${employee.idEmployee}">
+                                <button>Delete</button>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
     </div>
-</main>
+
 </body>
 </html>
