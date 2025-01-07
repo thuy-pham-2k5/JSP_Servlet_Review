@@ -27,7 +27,7 @@
             <h2>Add New Employee</h2>
         </div>
         <div class="form-container">
-            <form action="/employees?action=add&id=${employee.idEmployee}" method="post">
+            <form action="/employees?action=add" method="post">
                 <div class="mb-3">
                     <label for="1" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" id="1" required>
