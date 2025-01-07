@@ -97,4 +97,27 @@ public class EmployeeServiceImpl implements EmployeeService{
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<Employee> searchEmployeeByName(String keyword) {
+        List<Employee> employees = new ArrayList<>();
+        String query = "{call searchEmployeeByName (?)}";
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            CallableStatement callableStatement = connection.prepareCall(query);
+            callableStatement.setString(1, keyword);
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                int idEmployee = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String department = resultSet.getString(3);
+                String position = resultSet.getString(4);
+                double salary = resultSet.getDouble(5);
+                String address = resultSet.getString(6);
+                employees.add(new Employee(idEmployee, name, department, position, salary, address));
+            }
+            return employees;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

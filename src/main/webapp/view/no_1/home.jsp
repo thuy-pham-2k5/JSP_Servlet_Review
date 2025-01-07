@@ -6,18 +6,25 @@
     <meta charset="UTF-8">
     <title>Employee List</title>
     <link rel="stylesheet" href="/css/no_1/home.css">
+    <script src="/js/no_1/home.js" defer></script>
 </head>
 <body>
-
+<main>
 <div class="div-parent">
     <div>
         <h1>Employee List</h1>
     </div>
     <div class="div-children">
-        <div>
-            <a href="/employees?action=add">
-                <button type="submit">Add New Employee</button>
-            </a>
+        <div class="search-add">
+            <div class="search">
+                <form action="/employees?action=search" method="post">
+                    <input type="text" name="keyword" placeholder="Search by name..." />
+                    <button type="submit" id="search">Search</button>
+                </form>
+            </div>
+            <div class="add">
+                <a href="/employees?action=add"><button type="submit">Add New Employee</button></a>
+            </div>
         </div>
         <table>
             <tr>
@@ -53,6 +60,6 @@
         </table>
     </div>
 </div>
-
+</main>
 </body>
 </html>

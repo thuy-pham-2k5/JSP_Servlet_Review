@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet (value = "/employees")
+@WebServlet(value = "/employees")
 public class EmployeeServlet extends HttpServlet {
     EmployeeService employeeService = new EmployeeServiceImpl();
 
@@ -22,17 +22,26 @@ public class EmployeeServlet extends HttpServlet {
         if (action == null) action = "";
         switch (action) {
             case "add":
-                addNewEmployee (req, resp);
+                addNewEmployee(req, resp);
                 break;
             case "edit":
-                updateInfoEmployee (req, resp);
+                updateInfoEmployee(req, resp);
                 break;
             case "view":
-                showEmployeesView (req, resp);
+                showEmployeesView(req, resp);
+                break;
+            case "search":
+                searchEmployeeByName(req, resp);
                 break;
             default:
                 break;
         }
+    }
+
+    private void searchEmployeeByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String keyword = req.getParameter("keyword");
+        req.setAttribute("employees", employeeService.searchEmployeeByName(keyword));
+        req.getRequestDispatcher("/view/no_1/home.jsp").forward(req, resp);
     }
 
     private void addNewEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -59,20 +68,20 @@ public class EmployeeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-        if (action==null) action="";
+        if (action == null) action = "";
         switch (action) {
             case "add":
-                showAddNewEmployee (req, resp);
+                showAddNewEmployee(req, resp);
                 break;
             case "edit":
             case "view":
-                showEmployeeInfoDetail (req, resp);
+                showEmployeeInfoDetail(req, resp);
                 break;
             case "delete":
-                deleteInfoEmployee (req, resp);
+                deleteInfoEmployee(req, resp);
                 break;
             default:
-                showEmployeesView (req, resp);
+                showEmployeesView(req, resp);
                 break;
         }
     }

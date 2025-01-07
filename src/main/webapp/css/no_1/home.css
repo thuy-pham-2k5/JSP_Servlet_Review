@@ -6,8 +6,21 @@
     display: inline-grid;
 }
 
-.div-children div {
+
+.search-add {
     display: flex;
+}
+
+.search-add div {
+    display: flex;
+    width: 50%;
+}
+
+.search {
+    justify-content: flex-start;
+}
+
+.add {
     justify-content: flex-end;
     margin: 10px 0;
 }
@@ -44,3 +57,4 @@ a {
 button:hover {
     transform: scale(1.05);
 }
+
