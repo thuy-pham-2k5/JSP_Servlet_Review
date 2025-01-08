@@ -27,6 +27,7 @@
             </div>
         </div>
         <table>
+            <thead>
             <tr>
                 <th>#</th>
                 <th>Name</th>
@@ -36,6 +37,8 @@
                 <th>Address</th>
                 <th>Action</th>
             </tr>
+            </thead>
+            <tbody>
             <c:forEach var="employee" items="${employees}">
                 <tr>
                     <td>${employee.idEmployee}</td>
@@ -57,6 +60,7 @@
                     </td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
     </div>
 </div>

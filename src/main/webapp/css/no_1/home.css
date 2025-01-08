@@ -40,6 +40,10 @@ th, td {
     line-height: 2;
 }
 
+tbody tr:hover {
+    background-color: #bdb3b3;
+}
+
 button {
     cursor: pointer;
     padding: 5px 8px;
@@ -56,5 +60,6 @@ a {
 
 button:hover {
     transform: scale(1.05);
+    background-color: #ffffff;
 }
 
