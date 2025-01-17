@@ -18,7 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Employee List</title>
-    <link rel="stylesheet" href="/css/no_1/info_employee.css">
+    <link rel="stylesheet" href="/no_1/css/info_employee.css">
 </head>
 <body>
 <main>

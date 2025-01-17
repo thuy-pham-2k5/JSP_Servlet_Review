@@ -1,13 +1,14 @@
 package com.example.jsp_servlet_review.no_2;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductTypeServiceImpl implements ProductTypeService {
     @Override
-    public List<ProductType> getAllProduct (ProductType productType) {
+    public List<ProductType> getAllProduct () {
         String query = "select * from products join types on products.id_type = types.id_type order by products.id_product";
-        List<ProductType> productTypes = null;
+        List<ProductType> productTypes = new ArrayList<>();
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -21,8 +22,8 @@ public class ProductTypeServiceImpl implements ProductTypeService {
     }
 
     @Override
-    public List<ProductType> getAllType(ProductType productType) {
-       List<ProductType> productTypes = null;
+    public List<ProductType> getAllType() {
+       List<ProductType> productTypes = new ArrayList<>();
        String query = "select * from types";
        try {
            Connection connection = ConnectDatabase.getConnection();
@@ -102,7 +103,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 
     @Override
     public List<ProductType> searchProductByName(String keyword) {
-        List<ProductType> productTypes = null;
+        List<ProductType> productTypes = new ArrayList<>();
         String query = "{call searchProductByName (?)}";
         try {
             Connection connection = ConnectDatabase.getConnection();

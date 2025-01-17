@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Employee List</title>
-    <link rel="stylesheet" href="/css/no_1/home.css">
-    <script src="/js/no_1/home.js" defer></script>
+    <link rel="stylesheet" href="/no_1/css/home.css">
+    <script src="/no_1/js/home.js" defer></script>
 </head>
 <body>
 <main>
