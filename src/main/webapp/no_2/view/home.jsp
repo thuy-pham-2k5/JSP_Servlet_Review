@@ -12,6 +12,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Danh sách sản phẩm</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 <main>

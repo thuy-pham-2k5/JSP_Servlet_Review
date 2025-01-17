@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(value = "/product-type")
 public class ProductTypeServlet extends HttpServlet {
@@ -19,9 +18,23 @@ public class ProductTypeServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action==null) action="";
         switch (action) {
+            case "add":
+                addNewProductInDatabase (req, resp);
+                break;
             default:
                 break;
         }
+    }
+
+    private void addNewProductInDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String name = req.getParameter("name");
+        double price = Double.parseDouble(req.getParameter("price"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        int id_type = Integer.parseInt(req.getParameter("id_type"));
+        productTypeService.addNewProductType(name, price, quantity, id_type);
+
+        req.setAttribute("products", productTypeService.getAllProduct(false));
+        req.getRequestDispatcher("/no_2/view/home.jsp").forward(req, resp);
     }
 
     @Override
@@ -47,9 +60,7 @@ public class ProductTypeServlet extends HttpServlet {
     }
 
     private void showListProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<ProductType> productTypes = productTypeService.getAllProduct();
-        System.out.println(productTypes);
-        req.setAttribute("products", productTypes);
+        req.setAttribute("products", productTypeService.getAllProduct(true));
         req.getRequestDispatcher("/no_2/view/home.jsp").forward(req, resp);
     }
 }

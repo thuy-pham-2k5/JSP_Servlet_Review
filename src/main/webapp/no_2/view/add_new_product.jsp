@@ -21,20 +21,20 @@
             <div>
                 <p>
                     <span>Tên sản phẩm</span>
-                    <input type="text" name="name" placeholder="Nhập tên sản phẩm...">
+                    <input type="text" name="name" placeholder="Nhập tên sản phẩm..." required>
                 </p>
                 <p>
                     <span>Giá</span>
-                    <input type="number" name="price" step="any" placeholder="0.00 $">
+                    <input type="number" name="price" step="any" placeholder="0.00 $" required>
                 </p>
                 <p>
                     <span>Số lượng</span>
-                    <input type="number" name="price" placeholder="0">
+                    <input type="number" name="quantity" placeholder="0" required>
                 </p>
                 <p>
                     <span>Loại sản phẩm</span>
-                    <select>
-                        <option value="" selected hidden>--Chọn loại sản phẩm--</option>
+                    <select name="id_type" required>
+                        <option value="" selected hidden disabled>--Chọn loại sản phẩm--</option>
                         <c:forEach var="type" items="${types}">
                             <option value="${type.id_type}">${type.name_type}</option>
                         </c:forEach>

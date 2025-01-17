@@ -6,8 +6,13 @@ import java.util.List;
 
 public class ProductTypeServiceImpl implements ProductTypeService {
     @Override
-    public List<ProductType> getAllProduct () {
-        String query = "select * from products join types on products.id_type = types.id_type order by products.id_product";
+    public List<ProductType> getAllProduct (Boolean status_view) {
+        String query;
+        if (status_view) {
+            query = "select * from products join types on products.id_type = types.id_type order by products.id_product";
+        } else {
+            query = "select * from products join types on products.id_type = types.id_type order by products.id_product desc";
+        }
         List<ProductType> productTypes = new ArrayList<>();
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);

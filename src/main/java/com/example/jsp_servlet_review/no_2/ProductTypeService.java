@@ -3,7 +3,7 @@ package com.example.jsp_servlet_review.no_2;
 import java.util.List;
 
 public interface ProductTypeService {
-    List<ProductType> getAllProduct ();
+    List<ProductType> getAllProduct (Boolean status_view);
     List<ProductType> getAllType ();
     ProductType getProductTypeById (int id_product);
     void addNewProductType (String name, double price, int quantity, int id_type);
