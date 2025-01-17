@@ -41,7 +41,7 @@ public class EmployeeServlet extends HttpServlet {
     private void searchEmployeeByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String keyword = req.getParameter("keyword");
         req.setAttribute("employees", employeeService.searchEmployeeByName(keyword));
-        req.getRequestDispatcher("/view/no_1/home.jsp").forward(req, resp);
+        req.getRequestDispatcher("/no_1/view/home.jsp").forward(req, resp);
     }
 
     private void addNewEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -93,19 +93,19 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void showAddNewEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.sendRedirect("/view/no_1/add_new_employee.jsp");
+        resp.sendRedirect("/no_1/view/add_new_employee.jsp");
     }
 
     private void showEmployeeInfoDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         req.setAttribute("employee", employeeService.getEmployeeById(id));
         req.setAttribute("action", req.getParameter("action"));
-        req.getRequestDispatcher("/view/no_1/info_employee.jsp").forward(req, resp);
+        req.getRequestDispatcher("/no_1/view/info_employee.jsp").forward(req, resp);
     }
 
     private void showEmployeesView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Employee> employees = employeeService.getAllEmployees();
         req.setAttribute("employees", employees);
-        req.getRequestDispatcher("view/no_1/home.jsp").forward(req, resp);
+        req.getRequestDispatcher("no_1/view/home.jsp").forward(req, resp);
     }
 }
