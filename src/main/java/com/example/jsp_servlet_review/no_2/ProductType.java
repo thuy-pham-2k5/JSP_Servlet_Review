@@ -6,9 +6,9 @@ public class ProductType {
     private double price;
     private int quantity;
     private int id_type;
-    private int name_type;
+    private String name_type;
 
-    public ProductType(int id_product, String name, double price, int quantity, int id_type, int name_type) { // show list/info product
+    public ProductType(int id_product, String name, double price, int quantity, int id_type, String name_type) { // show list/info product
         this.id_product = id_product;
         this.name = name;
         this.price = price;
@@ -17,7 +17,7 @@ public class ProductType {
         this.name_type = name_type;
     }
 
-    public ProductType(int id_type, int name_type) { // show list type when add new product, update info
+    public ProductType(int id_type, String name_type) { // show list type when add new product, update info
         this.id_type = id_type;
         this.name_type = name_type;
     }
@@ -74,11 +74,11 @@ public class ProductType {
         this.id_type = id_type;
     }
 
-    public int getName_type() {
+    public String getName_type() {
         return name_type;
     }
 
-    public void setName_type(int name_type) {
+    public void setName_type(String name_type) {
         this.name_type = name_type;
     }
 }
