@@ -32,10 +32,18 @@ public class ProductTypeServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action==null) action="";
         switch (action) {
+            case "add":
+                showAddNewProductLayout (req, resp);
+                break;
             default:
                 showListProduct (req, resp);
                 break;
         }
+    }
+
+    private void showAddNewProductLayout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("types", productTypeService.getAllType());
+        req.getRequestDispatcher("/no_2/view/add_new_product.jsp").forward(req, resp);
     }
 
     private void showListProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

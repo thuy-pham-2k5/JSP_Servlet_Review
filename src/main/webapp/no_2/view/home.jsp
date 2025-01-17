@@ -21,12 +21,14 @@
     <div>
         <div>
             <form method="post">
-                <input type="search" name="keyword" placeholder="Tìm kiếm sản phẩm theo tên....">
+                <input type="search" name="keyword" placeholder="Tìm kiếm sản phẩm theo tên...." required>
                 <input type="submit" value="Tìm kiếm">
             </form>
         </div>
         <div>
-            <button>Thêm sản phẩm</button>
+            <a href="/product-type?action=add">
+                <button>Thêm sản phẩm</button>
+            </a>
         </div>
     </div>
     <div>
@@ -43,13 +45,19 @@
                 <tr>
                     <td>${product.id_product}</td>
                     <td>${product.name}</td>
-                    <td>${product.price}</td>
+                    <td id="price">${product.price} $</td>
                     <td>${product.quantity}</td>
                     <td>${product.name_type}</td>
                     <td>
-                        <a href="/product-type?action=view"><button>Xem</button></a>
-                        <a href="/product-type?action=edit"><button>Sửa</button></a>
-                        <a href="/product-type?action=delete"><button>Xóa</button></a>
+                        <a href="/product-type?action=view">
+                            <button>Xem</button>
+                        </a>
+                        <a href="/product-type?action=edit">
+                            <button>Sửa</button>
+                        </a>
+                        <a href="/product-type?action=delete">
+                            <button>Xóa</button>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
